@@ -21,7 +21,6 @@ public class TransformTweenTrack : TrackAsset
     /// <param name="clip"></param>
     protected override void OnCreateClip(TimelineClip clip)
     {
-        Debug.Log("HERE");
         base.OnCreateClip(clip);
         CreateTrackWorldPoints(clip);
         EnumerateAndRenameWorldPoints();
