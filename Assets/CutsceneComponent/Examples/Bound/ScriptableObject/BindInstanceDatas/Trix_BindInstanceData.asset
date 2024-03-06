@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0430cdef1b89d5d429688baef29b3ddb, type: 3}
+  m_Name: Trix_BindInstanceData
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 11400000, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
+  trackGroupType: 0
+  instances:
+  - {fileID: 8604345852283425820, guid: b03babf1c21058c4b9892354beb95f00, type: 3}

@@ -2,82 +2,87 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 /// <summary>
 /// Manages the binding of objects to a PlayableDirector for a cinematic timeline.
 /// </summary>
 public class TimeLineBinder : MonoBehaviour
 {
-    [Header("Cutscene player")]
+    [Header("Cutscene player and timeline")]
     public PlayableDirector playableDirector;
+    public TimelineAsset timeline;   
+    [Header("Instances to bind")]
+    public BindInstanceData trixBindInstanceData;
+    public BindInstanceData camerasBindInstanceData;
+    public BindInstanceData audioBindInstanceData;
     [Header("Instances parent")]
     public Transform instances;
-    [Header("Instances to bind")]
-    public GameObject playerPrefab;
-    public GameObject cinemachinePrefab;
-    public GameObject audioSourcePrefab;
-    //
-    private Animator playerAnimator;
-    private Transform cinemachineVirtualCamera;
-    private AudioSource musicAudioSource;
-
-    /// <summary>
-    /// Called before the first frame update. Initializes components and plays the cutscene.
-    /// </summary>
+    //  
+    private Dictionary<string, List<TrackStruct>> tracksGroup = new Dictionary<string, List<TrackStruct>>();
+   
     void Start()
     {
-        InstantiateComponents();
-        SetBindings();
-        PlayCutscene();
-    }
-
-    /// <summary>
-    /// Instantiates player, cinemachine, and audio source components.
-    /// </summary>
-    private void InstantiateComponents()
-    {
-        playerAnimator = Instantiate(playerPrefab, instances.position, Quaternion.identity, instances).GetComponent<Animator>();
-        cinemachineVirtualCamera = Instantiate(cinemachinePrefab, instances.position, Quaternion.identity, instances).transform.GetChild(1).transform;
-        musicAudioSource = Instantiate(audioSourcePrefab, instances.position, Quaternion.identity, instances).GetComponent<AudioSource>();
+        SetBindingDictionary();
+        BindAllInstances();
+        PlayCutscene();   
     }
 
     /// <summary>
     /// Sets up bindings for the PlayableDirector, associating objects with specific tracks.
     /// </summary>
-    private void SetBindings()
+    private void SetBindingDictionary()
     {
-        // Recupera as bindings existentes
-        var existingBindings = new List<PlayableBinding>();
-        existingBindings.AddRange(playableDirector.playableAsset.outputs);
-
-       /* // Limpa as bindings atuais do PlayableDirector
-        playableDirector.playableAsset.outputs.Clear();
-
-        // Adiciona as instâncias às bindings existentes
-        playableDirector.SetGenericBinding(playerAnimator, playerAnimator);
-        playableDirector.SetGenericBinding(cinemachineVirtualCamera, cinemachineVirtualCamera);
-        playableDirector.SetGenericBinding(musicAudioSource, musicAudioSource);
-
-        // Adiciona as bindings existentes de volta ao PlayableDirector
-        playableDirector.playableAsset.outputs.AddRange(existingBindings);*/
-
-        // Exemplo de como acessar informações sobre as bindings existentes
-        foreach (var binding in existingBindings)
+        for (int i = 0; i < timeline.rootTrackCount; i++)
         {
-            Debug.Log("Existing Binding: " + binding.streamName + " Type: " + binding.outputTargetType);
-            switch (binding.outputTargetType.ToString())
+            TrackAsset rootTrack = timeline.GetRootTrack(i);
+            List<TrackStruct> outputTracks = new List<TrackStruct>();
+            int instanceIdIterator = 0;
+
+            for (int j = 0; j < timeline.outputTrackCount; j++)
             {
-                case "UnityEngine.Animator":
-                    playableDirector.SetGenericBinding(binding.sourceObject, playerAnimator);
-                    break;
-                case "UnityEngine.Transform":
-                    playableDirector.SetGenericBinding(binding.sourceObject, cinemachineVirtualCamera);
-                    break;
-                case "UnityEngine.AudioSource":
-                    playableDirector.SetGenericBinding(binding.sourceObject, musicAudioSource);
-                    break;
-                default:
-                    break;
+                TrackAsset outputTrack = timeline.GetOutputTrack(j);
+                if (outputTrack.parent.name == rootTrack.name)
+                {
+
+                    TrackStruct trackTemp = new TrackStruct
+                    {
+                        instanceID = instanceIdIterator,
+                        track = outputTrack
+                    };
+
+                    instanceIdIterator++;
+                    outputTracks.Add(trackTemp);
+                }
+            }
+
+            tracksGroup.Add(rootTrack.name, outputTracks);
+        } 
+    }
+
+    /// <summary>
+    /// Bind all TrackGroup instances.
+    /// </summary>
+    private void BindAllInstances()
+    {
+        BindInstanceToDirector("Trix", trixBindInstanceData);
+        BindInstanceToDirector("Cameras", camerasBindInstanceData);
+        BindInstanceToDirector("Audio", audioBindInstanceData);
+    }
+
+    /// <summary>
+    /// Bind an instance by an TrackGroup name and using a BindInstanceData.
+    /// </summary>
+    /// <param name="trackGroupName"></param>
+    /// <param name="bindInstanceData"></param>
+    private void BindInstanceToDirector(string trackGroupName, BindInstanceData bindInstanceData)
+    {
+        foreach (var tracks in tracksGroup[trackGroupName])
+        {
+            foreach (var binding in tracks.track.outputs)
+            {
+                Object instanceObject = Instantiate(bindInstanceData.instances[tracks.instanceID], instances.position, Quaternion.identity, instances);
+                playableDirector.SetGenericBinding(binding.sourceObject, instanceObject);
             }
         }
     }
@@ -89,4 +94,11 @@ public class TimeLineBinder : MonoBehaviour
     {
         playableDirector.Play();
     }
+}
+
+
+public struct TrackStruct
+{
+    public int instanceID;
+    public TrackAsset track;
 }
