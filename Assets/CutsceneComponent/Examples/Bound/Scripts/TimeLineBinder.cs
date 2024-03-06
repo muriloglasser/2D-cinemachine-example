@@ -46,25 +46,11 @@ public class TimeLineBinder : MonoBehaviour
     /// </summary>
     private void SetBindings()
     {
-        // Recupera as bindings existentes
         var existingBindings = new List<PlayableBinding>();
         existingBindings.AddRange(playableDirector.playableAsset.outputs);
 
-       /* // Limpa as bindings atuais do PlayableDirector
-        playableDirector.playableAsset.outputs.Clear();
-
-        // Adiciona as instâncias às bindings existentes
-        playableDirector.SetGenericBinding(playerAnimator, playerAnimator);
-        playableDirector.SetGenericBinding(cinemachineVirtualCamera, cinemachineVirtualCamera);
-        playableDirector.SetGenericBinding(musicAudioSource, musicAudioSource);
-
-        // Adiciona as bindings existentes de volta ao PlayableDirector
-        playableDirector.playableAsset.outputs.AddRange(existingBindings);*/
-
-        // Exemplo de como acessar informações sobre as bindings existentes
         foreach (var binding in existingBindings)
         {
-            Debug.Log("Existing Binding: " + binding.streamName + " Type: " + binding.outputTargetType);
             switch (binding.outputTargetType.ToString())
             {
                 case "UnityEngine.Animator":
