@@ -220,21 +220,15 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 5335317132405009591, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
-    value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: 0}
-    value: {fileID: 0}
-  - key: {fileID: -3642864173429725248, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
     value: {fileID: 0}
   - key: {fileID: -1584518841018658975, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
     value: {fileID: 0}
   - key: {fileID: -1226868263727536568, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 6327621331763678729, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
     value: {fileID: 0}
   - key: {fileID: -8135038509854065190, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
     value: {fileID: 0}

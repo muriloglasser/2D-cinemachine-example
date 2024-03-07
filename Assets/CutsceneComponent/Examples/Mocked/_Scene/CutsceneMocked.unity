@@ -194,6 +194,12 @@ PlayableDirector:
     value: {fileID: 916749355}
   - key: {fileID: -3642864173429725248, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
     value: {fileID: 668233026}
+  - key: {fileID: -1584518841018658975, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
+    value: {fileID: 668233026}
+  - key: {fileID: -1226868263727536568, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
+    value: {fileID: 1458486995}
+  - key: {fileID: -8135038509854065190, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
+    value: {fileID: 916749355}
   m_ExposedReferences:
     m_References:
     - d8b0d1a31c224174a8af5dbc857c8647: {fileID: 0}
@@ -374,6 +380,11 @@ PrefabInstance:
 --- !u!4 &1458486994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9107724118372566284, guid: c60b70c072ee0ca4393b9ac271909411, type: 3}
+  m_PrefabInstance: {fileID: 1458486993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1458486995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1582064073089207283, guid: c60b70c072ee0ca4393b9ac271909411, type: 3}
   m_PrefabInstance: {fileID: 1458486993}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1802144857

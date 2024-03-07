@@ -16,4 +16,3 @@ MonoBehaviour:
   trackGroupType: 0
   instances:
   - {fileID: 8604345852283425820, guid: b03babf1c21058c4b9892354beb95f00, type: 3}
-  - {fileID: 1900842715766143484, guid: a3e32cdbbbd198b449c945627354d211, type: 3}
