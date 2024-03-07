@@ -224,11 +224,19 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: -8389104108269516395, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: -3642864173429725248, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1584518841018658975, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1226868263727536568, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6327621331763678729, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8135038509854065190, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
@@ -243,6 +251,7 @@ PlayableDirector:
     - b7b87c618a29d6e44be6be967c22d251: {fileID: 0}
     - a255ff46568d90b408ce5569115a38fe: {fileID: 0}
     - 0021d27eddf2a324fb3bfd27f0280039: {fileID: 0}
+    - c0cb5f9d0cc2b5246b8bbd383b4d91a0: {fileID: 7448359115043098569}
     - d8348c4b574b99d41b261911978caa6b: {fileID: 0}
     - 9b373ff80b6b5ef4cae318c2c0a56159: {fileID: 1930952484307441023}
     - df0cc5365fc4d644dae8339a74461688: {fileID: 7689469300502407545}
@@ -250,9 +259,12 @@ PlayableDirector:
     - 66923b3b877ab95468dffa77f1793eeb: {fileID: 0}
     - 14511d60944d561488f370a84bb59a4b: {fileID: 0}
     - 85cfa7addeabe164daddd5e8a7fcd20c: {fileID: 453213535980527730}
+    - 5d39239b9148cc04ea502035e98e3011: {fileID: 393966596031670966}
     - e7a68297096eb544887dad2f493f8a1b: {fileID: 0}
+    - 4e2331a772316ea4d9a024d784a545bc: {fileID: 4312354094448352423}
     - 32538b9112eccc247b3e61c8582f0b65: {fileID: 0}
     - cc7df0eecd4054c448faf61d5a034a19: {fileID: 0}
+    - 456fe33a014d33a469b2dda17ebc1c70: {fileID: 453213535980527730}
     - 4739547065055ac44b39817e25d1be40: {fileID: 0}
     - d5b8401994db2954eac2451d3ee81a89: {fileID: 0}
     - 58339ce48fab74b4aa73d58c3b6857a3: {fileID: 0}
@@ -267,9 +279,13 @@ PlayableDirector:
     - e4545164b11a7694a9e21c39243cd8a3: {fileID: 0}
     - 8567e99a0e48f7147919cf52e0438156: {fileID: 0}
     - 4f1468124b3efad4daad782eb32b7e64: {fileID: 0}
+    - 8056f8cbf5ea674479be1a1e226001bc: {fileID: 7689469300502407545}
     - 4863719a3127d334593a548b81639579: {fileID: 0}
+    - 43b29c4a64d37da4baeebaf58290c62e: {fileID: 8063852098447785354}
+    - fa50cff620fa758489e3e4c974686f28: {fileID: 1930952484307441023}
     - ed8ff2457f56fda49a66f92985c42310: {fileID: 0}
     - c27cf705e6a92664e8513e104bbb9dd3: {fileID: 0}
+    - ebd616d43abfbbb468c37ea684db0a5a: {fileID: 8219836684716898099}
     - 457acea178f328240ad9a1db02ed04b1: {fileID: 0}
 --- !u!4 &1876977620
 Transform:
@@ -659,9 +675,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1876977619}
   timeline: {fileID: 11400000, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
-  trixBindInstanceData: {fileID: 11400000, guid: bb430e1977559544a87e33c200e39e61, type: 2}
-  camerasBindInstanceData: {fileID: 11400000, guid: 1a8796418e1c6874d86cbfaa50a69303, type: 2}
-  audioBindInstanceData: {fileID: 11400000, guid: 7126a4037df757f498c8b0dcca81fae8, type: 2}
+  bindInstances:
+  - {fileID: 11400000, guid: 1a8796418e1c6874d86cbfaa50a69303, type: 2}
+  - {fileID: 11400000, guid: 7126a4037df757f498c8b0dcca81fae8, type: 2}
+  - {fileID: 11400000, guid: bb430e1977559544a87e33c200e39e61, type: 2}
   instances: {fileID: 1875189941}
 --- !u!4 &8063852098447785354
 Transform:

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Audio_BindInstanceData
   m_EditorClassIdentifier: 
   timeline: {fileID: 11400000, guid: 6b91cf53b38cc344b8f69029c5f8a38d, type: 2}
-  trackGroupType: 0
+  trackGroupType: 2
   instances:
+  - {fileID: 583601859086862576, guid: f2c4ab3172b732544a4976248e8ecd77, type: 3}
   - {fileID: 583601859086862576, guid: f2c4ab3172b732544a4976248e8ecd77, type: 3}

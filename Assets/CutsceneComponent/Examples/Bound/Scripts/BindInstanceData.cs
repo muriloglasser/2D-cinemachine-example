@@ -40,6 +40,8 @@ public enum TrackGroup
 {
     Trix,
     Cameras,
-    Audio
+    Audio,
+    None,
+    Duplicated
 }
 
